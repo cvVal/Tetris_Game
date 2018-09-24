@@ -1,10 +1,11 @@
-package com.valpu.seve.tetris
+package com.valpu.seve.tetris.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import com.valpu.seve.tetris.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

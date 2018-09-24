@@ -1,7 +1,8 @@
-package com.valpu.seve.tetris
+package com.valpu.seve.tetris.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.valpu.seve.tetris.R
 
 class GameActivity : AppCompatActivity() {
 
