@@ -5,4 +5,7 @@
     <string name="btn_main_new_game">New game</string>
     <string name="btn_main_reset_score">Reset score</string>
     <string name="btn_main_exit">exit</string>
+    <string name="tv_game_current_score">Current score</string>
+    <string name="tv_game_high_score">High score</string>
+    <string name="btn_game_btn_restart">Restart</string>
 </resources>
