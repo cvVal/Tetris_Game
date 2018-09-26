@@ -67,6 +67,14 @@ class Block(private val shapeIndex: Int, private val color: BlockColor) {
         return color.rgbValue
     }
 
+    fun getFrameNumber(): Int {
+        return frameNumber
+    }
+
+    fun getPosition(): Point? {
+        return this.position
+    }
+
     val frameCount: Int
         get() = Shape.values()[shapeIndex].frameCount
 
