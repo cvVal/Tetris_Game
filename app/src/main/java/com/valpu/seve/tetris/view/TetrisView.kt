@@ -152,6 +152,6 @@ class TetrisView : View {
 
     private fun updateScores() {
         activity?.tvCurrentScore?.text = "${model?.score}"
-        activity?.tvHighScore?.text = "${activity?.appPreferences?.getHighSocore()}"
+        activity?.tvHighScore?.text = "${activity?.appPreferences?.getHighScore()}"
     }
 }

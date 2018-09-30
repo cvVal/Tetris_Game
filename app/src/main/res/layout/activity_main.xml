@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/tetris"
     tools:context=".activities.MainActivity">
 
 
@@ -20,17 +21,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_main_layout_title"
-            android:textSize="80sp" />
+
 
         <TextView
             android:id="@+id/tv_high_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/layout_margin_top"
+            android:textColor="#fff"
+            android:layout_marginBottom="20dp"
             android:text="@string/tv_main_layout_high_score"
             android:textSize="20sp" />
 
@@ -45,16 +44,25 @@
                 android:id="@+id/btn_new_game"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:background="@drawable/tetris_shape"
                 android:text="@string/btn_main_new_game" />
 
             <Button
                 android:id="@+id/btn_reset_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="4dp"
+                android:textColor="#fff"
+                android:background="@drawable/tetris_shape"
                 android:text="@string/btn_main_reset_score" />
 
             <Button
                 android:id="@+id/btn_exit"
+                android:textColor="#fff"
+                android:background="@drawable/tetris_shape"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_main_exit" />

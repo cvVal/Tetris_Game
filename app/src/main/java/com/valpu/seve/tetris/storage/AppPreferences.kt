@@ -11,7 +11,7 @@ class AppPreferences(ctx: Context) {
         data.edit().putInt("HIGH_SOCORE", highScore).apply()
     }
 
-    fun getHighSocore(): Int {
+    fun getHighScore(): Int {
         return data.getInt("HIGH_SCORE", 0)
     }
 

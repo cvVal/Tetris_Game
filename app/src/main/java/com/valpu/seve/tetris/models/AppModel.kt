@@ -206,7 +206,7 @@ class AppModel {
     private fun boostScore() {
         score += 10
 
-        if (score > preferences?.getHighSocore() as Int)
+        if (score > preferences?.getHighScore() as Int)
             preferences?.saveHighScore(score)
     }
 

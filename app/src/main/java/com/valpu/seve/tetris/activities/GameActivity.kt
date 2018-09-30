@@ -82,7 +82,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun updateHighScore() {
-        tvHighScore?.text = "${appPreferences?.getHighSocore()}"
+        tvHighScore?.text = "${appPreferences?.getHighScore()}"
     }
 
     private fun updateCurrentScore() {
