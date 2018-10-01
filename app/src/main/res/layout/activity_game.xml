@@ -63,7 +63,7 @@
                 android:id="@+id/btn_restart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tetris_shape"
+                android:background="@drawable/tetris_shape_black"
                 android:text="@string/btn_game_btn_restart" />
         </LinearLayout>
 

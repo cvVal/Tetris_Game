@@ -8,8 +8,12 @@ import android.graphics.RectF
 import android.os.Handler
 import android.os.Message
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import com.github.johnpersano.supertoasts.library.Style
+import com.github.johnpersano.supertoasts.library.SuperActivityToast
+import com.github.johnpersano.supertoasts.library.utils.PaletteUtils
 import com.valpu.seve.tetris.activities.GameActivity
 import com.valpu.seve.tetris.constants.CellConstants
 import com.valpu.seve.tetris.constants.FieldConstants
@@ -30,9 +34,9 @@ class TetrisView : View {
     constructor(ctx: Context, attrs: AttributeSet, defStyle: Int): super(ctx, attrs, defStyle)
 
     companion object {
-        private val DELAY = 500
-        private val BLOCK_OFFSET = 2
-        private val FRAME_OFFSET_BASE = 10
+        private const val DELAY = 500
+        private const val BLOCK_OFFSET = 2
+        private const val FRAME_OFFSET_BASE = 10
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -70,7 +74,15 @@ class TetrisView : View {
                 if (owner.model != null) {
                     if (owner.model!!.isGameOver()) {
                         owner.model?.endGame()
-                        Toast.makeText(owner.activity, "Game over", Toast.LENGTH_LONG).show()
+                        val superActivityToast = SuperActivityToast(owner.context)
+                        superActivityToast.text = "                                   GAME OVER"
+                        superActivityToast.duration = Style.DURATION_VERY_SHORT
+                        superActivityToast.color = PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_DEEP_ORANGE)
+                        superActivityToast.textColor = Color.BLACK
+                        //superActivityToast.setTouchToDismiss(true)
+                        //superActivityToast.isIndeterminate = true
+                        //superActivityToast.progressIndeterminate = true
+                        superActivityToast.show()
                     }
                     if (owner.model!!.isGameActive()) {
                         owner.setGameCommandWithDelay(AppModel.Motions.DOWN)

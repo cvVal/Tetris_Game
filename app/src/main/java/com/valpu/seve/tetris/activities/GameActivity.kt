@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import com.valpu.seve.tetris.R
 import com.valpu.seve.tetris.models.AppModel
@@ -17,6 +19,7 @@ class GameActivity : AppCompatActivity() {
     var tvHighScore: TextView? = null
     var tvCurrentScore: TextView? = null
     private lateinit var tetrisView: TetrisView
+    private var animScale: Animation? = null
 
     var appPreferences: AppPreferences? = null
     private val appModel: AppModel = AppModel()
@@ -25,7 +28,11 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setIcon(R.mipmap.ic_launcher)
 
+        animScale = AnimationUtils.loadAnimation(this, R.anim.anim_scale)
 
         appPreferences = AppPreferences(this)
         appModel.setPreferences(appPreferences)
@@ -48,6 +55,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun btnRestartClick(view: View) {
+        view.startAnimation(animScale)
         appModel.restartGame()
     }
 
