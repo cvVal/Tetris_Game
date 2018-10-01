@@ -12,7 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var tvHighScore: TextView? = null
+    private var tvHighScore: TextView? = null
+    private var appPreferences: AppPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +25,19 @@ class MainActivity : AppCompatActivity() {
         val btnExit = btn_exit
         tvHighScore = tv_high_score
 
+        appPreferences = AppPreferences(this)
+
+        tvHighScore?.text = (getString(R.string.tv_main_layout_high_score, appPreferences?.getHighScore().toString()))
+
         btnNewGame.setOnClickListener(this::onBtnNewGameClick)
         btnResetScore.setOnClickListener(this::onBtnResetScore)
         btnExit.setOnClickListener(this::onBtnExit)
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        tvHighScore?.text = (getString(R.string.tv_main_layout_high_score, appPreferences?.getHighScore().toString()))
     }
 
     private fun onBtnNewGameClick(view: View) {
@@ -38,8 +48,8 @@ class MainActivity : AppCompatActivity() {
     private fun onBtnResetScore(view: View) {
         val preferences = AppPreferences(this)
         preferences.clearHighScore()
-        Snackbar.make(view, "Score successfully reset", Snackbar.LENGTH_SHORT).show()
-        tvHighScore?.text = "High score: ${preferences.getHighScore()}"
+        Snackbar.make(view, getString(R.string.main_snackbar_reset_score), Snackbar.LENGTH_SHORT).show()
+        tvHighScore?.text = (getString(R.string.tv_main_layout_high_score, appPreferences?.getHighScore().toString()))
     }
 
     private fun onBtnExit(view: View) {

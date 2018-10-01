@@ -26,6 +26,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+
         appPreferences = AppPreferences(this)
         appModel.setPreferences(appPreferences)
 
