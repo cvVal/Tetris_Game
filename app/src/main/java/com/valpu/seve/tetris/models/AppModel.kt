@@ -172,7 +172,7 @@ class AppModel {
         currentState = AppModel.Statuses.OVER.name
     }
 
-    private fun resetModel() {
+    fun resetModel() {
         resetField(false)
         currentState = Statuses.AWAITING_START.name
         score = 0

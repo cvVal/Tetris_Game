@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GameActivity">
+    tools:context=".activities.GameActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@mipmap/background_purple"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -19,8 +25,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="32dp"
-            android:paddingTop="32dp">
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -75,13 +81,69 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="9">
+            android:layout_weight="9"
+            android:orientation="vertical">
 
             <com.valpu.seve.tetris.view.TetrisView
                 android:id="@+id/view_tetris"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_width="wrap_content"
+                android:layout_height="370dp" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_down"
+                app:layout_constraintTop_toTopOf="@+id/btn_down">
+
+                <Button
+                    android:id="@+id/btn_left"
+                    android:layout_width="@dimen/btn_game_directions"
+                    android:layout_height="@dimen/btn_game_directions"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:background="@drawable/tetris_shape_black"
+                    android:drawableStart="@mipmap/ic_left"
+                    android:onClick="btnClicked" />
+
+                <Button
+                    android:id="@+id/btn_down"
+                    android:layout_width="@dimen/btn_game_directions"
+                    android:layout_height="@dimen/btn_game_directions"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/tetris_shape_black"
+                    android:drawableBottom="@mipmap/ic_down"
+                    android:onClick="btnClicked" />
+
+                <Button
+                    android:id="@+id/btn_right"
+                    android:layout_width="@dimen/btn_game_directions"
+                    android:layout_height="@dimen/btn_game_directions"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="38dp"
+                    android:background="@drawable/tetris_shape_black"
+                    android:drawableEnd="@mipmap/ic_right"
+                    android:onClick="btnClicked" />
+
+                <Button
+                    android:id="@+id/btn_rotate"
+                    android:layout_width="@dimen/btn_game_directions"
+                    android:layout_height="@dimen/btn_game_directions"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="88dp"
+                    android:background="@drawable/tetris_shape_black"
+                    android:drawableTop="@mipmap/ic_rotate"
+                    android:onClick="btnClicked" />
+
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

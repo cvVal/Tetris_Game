@@ -3,4 +3,5 @@
     <dimen name="layout_margin_vertical">16dp</dimen>
     <dimen name="layout_margin_bottom">16dp</dimen>
     <dimen name="layout_margin_top">16dp</dimen>
+    <dimen name="btn_game_directions">62dp</dimen>
 </resources>

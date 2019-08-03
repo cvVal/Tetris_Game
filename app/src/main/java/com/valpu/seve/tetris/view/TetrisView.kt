@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
+import android.media.MediaPlayer
 import android.os.Handler
 import android.os.Message
 import android.util.AttributeSet
@@ -14,6 +15,7 @@ import android.widget.Toast
 import com.github.johnpersano.supertoasts.library.Style
 import com.github.johnpersano.supertoasts.library.SuperActivityToast
 import com.github.johnpersano.supertoasts.library.utils.PaletteUtils
+import com.valpu.seve.tetris.R
 import com.valpu.seve.tetris.activities.GameActivity
 import com.valpu.seve.tetris.constants.CellConstants
 import com.valpu.seve.tetris.constants.FieldConstants
@@ -34,7 +36,7 @@ class TetrisView : View {
     constructor(ctx: Context, attrs: AttributeSet, defStyle: Int): super(ctx, attrs, defStyle)
 
     companion object {
-        private const val DELAY = 500
+        private var DELAY = 320
         private const val BLOCK_OFFSET = 2
         private const val FRAME_OFFSET_BASE = 10
     }
@@ -73,6 +75,9 @@ class TetrisView : View {
             if (msg.what == 0) {
                 if (owner.model != null) {
                     if (owner.model!!.isGameOver()) {
+                        val mpDieSound = MediaPlayer.create(owner.context, R.raw.die)
+                        GameActivity.mpSongSound.pause()
+                        mpDieSound.start()
                         owner.model?.endGame()
                         val superActivityToast = SuperActivityToast(owner.context)
                         superActivityToast.text = "                                   GAME OVER"
